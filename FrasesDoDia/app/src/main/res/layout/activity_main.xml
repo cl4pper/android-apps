@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteY="81dp">
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/imageTop"
         android:layout_width="170dp"
         android:layout_height="126dp"
         android:layout_marginEnd="8dp"
@@ -20,31 +20,32 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/buttonMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Nova Frase"
+        android:onClick="gerarFrase"
+        android:text="Change Question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/imageTop" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textMain"
         android:layout_width="250dp"
         android:layout_height="61dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Pressione o botão Nova Frase"
+        android:text="Press the button to start"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMain"
         app:layout_constraintVertical_bias="0.092" />
 </android.support.constraint.ConstraintLayout>
