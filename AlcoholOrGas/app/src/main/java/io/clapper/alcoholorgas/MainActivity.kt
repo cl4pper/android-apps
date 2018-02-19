@@ -15,16 +15,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buttonResult( view: View ) {
-        // getter do preco do alcool na(da) view
+        // getter do preco do alcool da view
         // val priceAlcohol = findViewById<View>(R.id.edit_alcohol_price) as EditText OU (usando o plugin)
         val priceAlcohol = edit_alcohol_price
         val textoRecuperadoAlc = priceAlcohol.text.toString()
-        // OU val textoRecuperado = priceAlcohol.text
 
         val priceGas = edit_gas_price
-        val textoRecuperadoGas = priceGas.text
+        val textoRecuperadoGas = priceGas.text.toString()
 
-        Log.i( "RESULTADO", "texto recuperado do Alcool: $textoRecuperadoAlc" )
-        Log.i( "RESULTADO", "texto recuperado da Gasolina: $textoRecuperadoGas" )
+        //Log.i( "RESULTADO", "texto recuperado do Alcool: $textoRecuperadoAlc" )
+
+        calcular( textoRecuperadoGas, textoRecuperadoAlc )
+    }
+
+    fun calcular( priceGas: String, priceAlc: String ) {
+        val valorGas = priceGas.toDouble()
+        val valorAlc = priceAlc.toDouble()
+
+        if ( valorAlc/valorGas >= 0.7 ) {
+            text_result.setText("Comprar Álcool.")
+        } else {
+            text_result.setText("Comprar Gasolina.")
+        }
     }
 }
