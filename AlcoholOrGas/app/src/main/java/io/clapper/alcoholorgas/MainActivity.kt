@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun buttonResult(view: View) {
+    fun buttonResult( view: View ) {
         // getter do preco do alcool da view
         // val priceAlcohol = findViewById<View>(R.id.edit_alcohol_price) as EditText OU (usando o plugin)
         val priceAlcohol = edit_alcohol_price
