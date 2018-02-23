@@ -11,32 +11,54 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="116dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:width="170dp"
         android:height="100dp"
         android:background="#008800"
-        android:text="Attack"
+        android:text="A"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="116dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:width="170dp"
         android:height="100dp"
         android:background="#FF0000"
-        android:text="Defence"
+        android:text="D"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="136dp"
+        android:width="200dp"
+        android:height="200dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="X"
+        android:textAlignment="center"
+        android:textSize="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
