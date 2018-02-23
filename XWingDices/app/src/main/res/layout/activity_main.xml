@@ -8,29 +8,34 @@
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_attack"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="116dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:width="170dp"
         android:height="100dp"
         android:background="#008800"
+        android:onClick="pressButton"
         android:text="A"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_defence"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/input_dices"
+        app:layout_constraintVertical_bias="0.067" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_defence"
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="116dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:width="170dp"
         android:height="100dp"
@@ -41,10 +46,13 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toEndOf="@+id/button_attack"
+        app:layout_constraintTop_toBottomOf="@+id/input_dices"
+        app:layout_constraintVertical_bias="0.067" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/input_dices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
