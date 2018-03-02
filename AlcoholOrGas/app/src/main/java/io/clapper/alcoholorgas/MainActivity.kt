@@ -33,14 +33,17 @@ class MainActivity : AppCompatActivity() {
         val validacao = validateInput( textoRecuperadoGas, textoRecuperadoAlc )
         if ( validacao ) {
             resultado = calcular(textoRecuperadoGas, textoRecuperadoAlc)
+            returnIntent.putExtra( ReturnActivity.TEXT_RETURN, resultado )
+            startActivity( returnIntent )
         } else {
             //text_result.setText("Insira os valores.")
-            resultado = "Insira os valores."
+            text_result.text = "Insira os valores."
         }
 
+        /*
         returnIntent.putExtra( ReturnActivity.TEXT_RETURN, resultado )
-
         startActivity( returnIntent )
+        */
     }
 
     fun calcular(priceGas: String, priceAlc: String) : String {
