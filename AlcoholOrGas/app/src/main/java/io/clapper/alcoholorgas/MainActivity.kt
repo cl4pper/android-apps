@@ -3,10 +3,11 @@ package io.clapper.alcoholorgas
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.EditText
+import android.util.Log
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,24 +21,27 @@ class MainActivity : AppCompatActivity() {
         val returnIntent = Intent( this, ReturnActivity::class.java )
         // getter do preco do alcool da view
         // val priceAlcohol = findViewById<View>(R.id.edit_alcohol_price) as EditText OU (usando o plugin)
-        val priceAlcohol = edit_alcohol_price
-        val textoRecuperadoAlc = priceAlcohol.text.toString()
+        var priceAlcohol = edit_alcohol_price
+        var textoRecuperadoAlc = priceAlcohol.text.toString()
         //
-        val priceGas = edit_gas_price
-        val textoRecuperadoGas = priceGas.text.toString()
+        var priceGas = edit_gas_price
+        var textoRecuperadoGas = priceGas.text.toString()
         //
         var resultado: String? = null
 
         //Log.i( "RESULTADO", "texto recuperado do Alcool: $textoRecuperadoAlc" )
 
-        val validacao = validateInput( textoRecuperadoGas, textoRecuperadoAlc )
+        var validacao = validateInput( textoRecuperadoGas, textoRecuperadoAlc )
         if ( validacao ) {
             resultado = calcular(textoRecuperadoGas, textoRecuperadoAlc)
             returnIntent.putExtra( ReturnActivity.TEXT_RETURN, resultado )
+            Log.i( "Hello", "$resultado" )
             startActivity( returnIntent )
         } else {
             //text_result.setText("Insira os valores.")
-            text_result.text = "Insira os valores."
+            text_result.text = "Insira os valores!"
+            val myToast = Toast.makeText(this, "Valores incorretos!", Toast.LENGTH_SHORT)
+            myToast.show()
         }
 
         /*
@@ -47,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calcular(priceGas: String, priceAlc: String) : String {
-        val valorGas = priceGas.toDouble()
-        val valorAlc = priceAlc.toDouble()
+        var valorGas = priceGas.toDouble()
+        var valorAlc = priceAlc.toDouble()
 
         if (valorAlc / valorGas >= 0.7) {
             //text_result.setText("Comprar Álcool.")
@@ -63,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         var validateResult = true
 
         if ((priceAlc == null) || (priceGas == null) || (priceAlc == "") || (priceGas == "")) {
+        //if (( priceAlc.toInt() >= 0.0 ) || ( priceGas.toInt() >= 0.0 ) || ( priceAlc == "" ) || ( priceGas == "" ) || ( priceAlc == null ) || ( priceGas == null ) ) {
             validateResult = false
         }
 
