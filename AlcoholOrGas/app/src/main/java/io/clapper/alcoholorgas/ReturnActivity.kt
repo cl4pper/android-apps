@@ -1,6 +1,7 @@
 package io.clapper.alcoholorgas
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,6 +23,7 @@ class ReturnActivity : AppCompatActivity() {
     fun backToMain( view: View ) {
         //
         val mainIntent = Intent( this, MainActivity::class.java )
+        button2.setBackgroundColor( Color.parseColor("#ffffff" ) )
         startActivity( mainIntent )
     }
 

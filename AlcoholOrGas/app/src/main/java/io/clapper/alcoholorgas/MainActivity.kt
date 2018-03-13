@@ -1,11 +1,11 @@
 package io.clapper.alcoholorgas
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.EditText
 import android.util.Log
 import android.widget.Toast
 
@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
             startActivity( returnIntent )
         } else {
             //text_result.setText("Insira os valores.")
-            text_result.text = "Insira os valores!"
+            text_title.text = "Insira os valores!"
+            calculate.setBackgroundColor( Color.parseColor( "#FF0000" ) )
             val myToast = Toast.makeText(this, "Valores incorretos!", Toast.LENGTH_SHORT)
             myToast.show()
         }
