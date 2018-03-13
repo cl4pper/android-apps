@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //
-        recyclerView_main.setBackgroundColor( Color.GRAY )
+        //recyclerView_main.setBackgroundColor( Color.GRAY )
         recyclerView_main.layoutManager = LinearLayoutManager( this )
         //recyclerView_main.layoutManager = GridLayoutManager( ? )
         //recyclerView_main.layoutManager = StaggeredGridLayoutManager( ? )

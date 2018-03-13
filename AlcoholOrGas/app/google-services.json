@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "89844223668",
+    "firebase_url": "https://alcoholorgas.firebaseio.com",
+    "project_id": "alcoholorgas",
+    "storage_bucket": "alcoholorgas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89844223668:android:a477ff9b9123f985",
+        "android_client_info": {
+          "package_name": "io.clapper.alcoholorgas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89844223668-b5gba9on408hggqsk7orade14inclull.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.clapper.alcoholorgas",
+            "certificate_hash": "f1b20a4a25d98cc0d7cf3b3d5af25e4bdbc5f42d"
+          }
+        },
+        {
+          "client_id": "89844223668-8ng37uh0quqg45dbsn95pddo6gdtjq9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjwWCeIvMzKOi1RiWLtQ47larvtwPJroI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89844223668-8ng37uh0quqg45dbsn95pddo6gdtjq9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
