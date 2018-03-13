@@ -8,6 +8,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import android.util.Log
 import android.widget.Toast
+import kotlin.concurrent.fixedRateTimer
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,7 +41,18 @@ class MainActivity : AppCompatActivity() {
         } else {
             //text_result.setText("Insira os valores.")
             text_title.text = "Insira os valores!"
-            calculate.setBackgroundColor( Color.parseColor( "#FF0000" ) )
+            // alterar cor do button por 1s apenas
+            /*
+            val fixedT = fixedRateTimer( name = "change-color", initialDelay = 1000, period = 1000 ) {
+                calculate.setBackgroundColor( Color.parseColor( "#FF0000" ) )
+            }
+            try {
+                Thread.sleep( 1000 )
+            } finally {
+                fixedT.cancel()
+            }
+            */
+            calculate.setBackgroundColor( Color.parseColor( "#FF0000" ) ) // alterar cor do button
             val myToast = Toast.makeText(this, "Valores incorretos!", Toast.LENGTH_SHORT)
             myToast.show()
         }
