@@ -10,48 +10,45 @@
         android:id="@+id/input_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingStart="10sp"
-        android:text="none"
-        app:layout_constraintEnd_toStartOf="@+id/but_pressHere"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/but_clr"
+        app:layout_constraintStart_toStartOf="@+id/vertical_10"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/but_pressHere"
-        android:layout_width="wrap_content"
+        android:id="@+id/but_add"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:text="Press Here"
+        android:text="Add"
         app:layout_constraintBottom_toBottomOf="@+id/input_text"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_90"
         app:layout_constraintTop_toTopOf="@+id/input_text" />
 
     <Button
-        android:id="@+id/but_reset"
+        android:id="@+id/reset_times"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="Reset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
+        app:layout_constraintStart_toStartOf="@+id/vertical_10"
         app:layout_constraintTop_toBottomOf="@+id/input_text" />
 
     <TextView
-        android:id="@+id/text_log"
+        android:id="@+id/log_times"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
         android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
         app:layout_constraintStart_toStartOf="@+id/vertical_10"
-        app:layout_constraintTop_toBottomOf="@+id/but_reset" />
+        app:layout_constraintTop_toBottomOf="@+id/reset_times" />
 
     <android.support.constraint.Guideline
         android:id="@+id/vertical_10"
@@ -66,5 +63,44 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <TextView
+        android:id="@+id/log_names"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+        app:layout_constraintStart_toStartOf="@+id/vertical_50"
+        app:layout_constraintTop_toBottomOf="@+id/reset_names" />
+
+    <Button
+        android:id="@+id/reset_names"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Reset"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+        app:layout_constraintStart_toStartOf="@+id/vertical_50"
+        app:layout_constraintTop_toBottomOf="@+id/input_text" />
+
+    <Button
+        android:id="@+id/but_clr"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="CLR"
+        app:layout_constraintBottom_toBottomOf="@+id/but_add"
+        app:layout_constraintEnd_toStartOf="@+id/but_add"
+        app:layout_constraintTop_toTopOf="@+id/but_add" />
 
 </android.support.constraint.ConstraintLayout>
