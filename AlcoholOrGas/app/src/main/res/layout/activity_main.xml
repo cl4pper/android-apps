@@ -33,50 +33,45 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/edit_alcohol_price"
-        android:layout_width="300dp"
+        android:id="@+id/input_alc"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Preço Álcool ex. 1.90"
         android:inputType="numberDecimal"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clr_alc"
+        app:layout_constraintStart_toStartOf="@+id/vertical_10"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/edit_gas_price"
-        android:layout_width="300dp"
+        android:id="@+id/input_gas"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Preço Gasolina ex. 2.80"
         android:inputType="numberDecimal"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_alcohol_price" />
+        app:layout_constraintEnd_toStartOf="@+id/clr_gas"
+        app:layout_constraintStart_toStartOf="@+id/vertical_10"
+        app:layout_constraintTop_toBottomOf="@+id/input_alc" />
 
     <Button
-        android:id="@+id/calculate"
+        android:id="@+id/but_calculate"
         android:layout_width="299dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="buttonResult"
         android:text="Calcular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_gas_price" />
+        app:layout_constraintTop_toBottomOf="@+id/input_gas" />
 
     <TextView
-        android:id="@+id/text_title"
+        android:id="@+id/text_return"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
@@ -88,5 +83,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/but_calculate" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <Button
+        android:id="@+id/clr_alc"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="CLR"
+        app:layout_constraintBottom_toBottomOf="@+id/input_alc"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+        app:layout_constraintTop_toTopOf="@+id/input_alc" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <Button
+        android:id="@+id/clr_gas"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="clr"
+        app:layout_constraintBottom_toBottomOf="@+id/input_gas"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+        app:layout_constraintTop_toTopOf="@+id/input_gas"
+        app:layout_constraintVertical_bias="0.0" />
+
 </android.support.constraint.ConstraintLayout>

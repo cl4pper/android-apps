@@ -7,83 +7,74 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import kotlin.concurrent.fixedRateTimer
+
+private const val TAG_ALC = "ValueAlc"
+private const val TAG_GAS = "ValueGas"
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
 
-    fun buttonResult( view: View ) {
-        //
-        val returnIntent = Intent( this, ReturnActivity::class.java )
-        // getter do preco do alcool da view
-        // val priceAlcohol = findViewById<View>(R.id.edit_alcohol_price) as EditText OU (usando o plugin)
-        var priceAlcohol = edit_alcohol_price
-        var textoRecuperadoAlc = priceAlcohol.text.toString()
-        //
-        var priceGas = edit_gas_price
-        var textoRecuperadoGas = priceGas.text.toString()
-        //
-        var resultado: String? = null
-
-        //Log.i( "RESULTADO", "texto recuperado do Alcool: $textoRecuperadoAlc" )
-
-        var validacao = validateInput( textoRecuperadoGas, textoRecuperadoAlc )
-        if ( validacao ) {
-            resultado = calcular(textoRecuperadoGas, textoRecuperadoAlc)
-            returnIntent.putExtra( ReturnActivity.TEXT_RETURN, resultado )
-            Log.i( "Hello", "$resultado" )
-            startActivity( returnIntent )
-        } else {
-            //text_result.setText("Insira os valores.")
-            text_title.text = "Insira os valores!"
-            // alterar cor do button por 1s apenas
-            /*
-            val fixedT = fixedRateTimer( name = "change-color", initialDelay = 1000, period = 1000 ) {
-                calculate.setBackgroundColor( Color.parseColor( "#FF0000" ) )
+        val butCalculate: Button = findViewById( R.id.but_calculate )
+        val inputAlc: TextView = findViewById( R.id.input_alc )
+        val inputGas: TextView = findViewById( R.id.input_gas )
+        val textReturn: TextView = findViewById( R.id.text_return )
+        val clearAlc: Button = findViewById( R.id.clr_alc )
+        val clearGas: Button = findViewById( R.id.clr_gas )
+        
+        butCalculate.setOnClickListener( object : View.OnClickListener {
+            override fun onClick( v: View? ) {
+                var alcool = inputAlc.text.toString()
+                var gasolina = inputGas.text.toString()
+                //
+                //var result = calculate( alcool, gasolina )
+                textReturn.text = calculate( alcool, gasolina )
             }
-            try {
-                Thread.sleep( 1000 )
-            } finally {
-                fixedT.cancel()
+        })
+
+        clearAlc.setOnClickListener( object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                inputAlc.text = ""
             }
-            */
-            calculate.setBackgroundColor( Color.parseColor( "#FF0000" ) ) // alterar cor do button
-            val myToast = Toast.makeText(this, "Valores incorretos!", Toast.LENGTH_SHORT)
-            myToast.show()
-        }
+        })
 
-        /*
-        returnIntent.putExtra( ReturnActivity.TEXT_RETURN, resultado )
-        startActivity( returnIntent )
-        */
+        clearGas.setOnClickListener( object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                inputGas.text = ""
+            }
+        })
+    } // onCreate
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        //outState?.putString( TAG_ALC, "" )
+        outState?.putString( TAG_ALC, input_alc?.text.toString() )
+        outState?.putString( TAG_GAS, input_gas?.text.toString() )
     }
 
-    fun calcular(priceGas: String, priceAlc: String) : String {
-        var valorGas = priceGas.toDouble()
-        var valorAlc = priceAlc.toDouble()
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        //input_alc?.text = savedInstanceState?.getString( TAG_ALC, "" )
+        //input_gas?.text = savedInstanceState?.getString( TAG_GAS, "" )
+    }
 
-        if (valorAlc / valorGas >= 0.7) {
-            //text_result.setText("Comprar Álcool.")
-            return "Comprar Álcool"
+    fun calculate( alc: String, gas: String ) : String {
+        //
+        if( ( alc == "") || ( gas == "") ) {
+            return "Insira todos os valores!"
         } else {
-            //text_result.setText("Comprar Gasolina.")
-            return "Comprar Gasolina"
+            var cal = alc.toDouble() / gas.toDouble()
+            if( cal < 0.7 ) {
+                return "Comprar Alcool."
+            } else {
+                return "Comprar Gasolina."
+            }
         }
-    }
-
-    fun validateInput ( priceGas: String, priceAlc: String ) : Boolean {
-        var validateResult = true
-
-        if ((priceAlc == null) || (priceGas == null) || (priceAlc == "") || (priceGas == "")) {
-        //if (( priceAlc.toInt() >= 0.0 ) || ( priceGas.toInt() >= 0.0 ) || ( priceAlc == "" ) || ( priceGas == "" ) || ( priceAlc == null ) || ( priceGas == null ) ) {
-            validateResult = false
-        }
-
-        return validateResult
     }
 }
