@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         //val savedNames = savedInstanceState?.getString( NAME_TAG, "" )
         //
         log_times?.text = savedInstanceState?.getString( COUNT_TAG, "LOG:" )
-        //log_names?.text = savedNames
+        log_names?.text = savedInstanceState?.getString( NAME_TAG, "NAMES:")
     }
 
     // onde se inicia a interacao usuario x Activity
