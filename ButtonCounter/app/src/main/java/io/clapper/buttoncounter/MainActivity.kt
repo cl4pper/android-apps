@@ -10,6 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+
+private const val COUNT_TAG = "CountContent"
+private const val NAME_TAG = "NameContent"
 
 class MainActivity : AppCompatActivity() {
 
@@ -98,6 +102,11 @@ class MainActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         val cycleName = Toast.makeText( this, "onRestoreInstanceState", Toast.LENGTH_SHORT )
         cycleName.show()
+        //val savedCount = savedInstanceState?.getString( COUNT_TAG, "" )
+        //val savedNames = savedInstanceState?.getString( NAME_TAG, "" )
+        //
+        log_times?.text = savedInstanceState?.getString( COUNT_TAG, "LOG:" )
+        //log_names?.text = savedNames
     }
 
     // onde se inicia a interacao usuario x Activity
@@ -116,10 +125,13 @@ class MainActivity : AppCompatActivity() {
         cycleName.show()
     }
 
-    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
-        super.onSaveInstanceState(outState, outPersistentState)
+    // chamado para salvar dados da aplicacao - FragmentActivity
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
         val cycleName = Toast.makeText( this, "onSaveInstanceState", Toast.LENGTH_SHORT )
         cycleName.show()
+        outState?.putString( COUNT_TAG, log_times?.text.toString() )
+        outState?.putString( NAME_TAG, log_names?.text.toString() )
     }
 
     // chamada quando a Activity nao esta mais visivel ao usuario
