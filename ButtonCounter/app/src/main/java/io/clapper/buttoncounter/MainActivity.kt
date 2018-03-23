@@ -26,61 +26,61 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Varivaeis
-        val logTimes: TextView = findViewById<TextView>( R.id.log_times )
-        val logNames: TextView = findViewById<TextView>( R.id.log_names )
-        val textInput: EditText = findViewById<EditText>( R.id.input_text )
-        val butAdd: Button = findViewById<Button>( R.id.but_add )
-        val butClr: Button = findViewById<Button>( R.id.but_clr )
-        val resetTimes: Button = findViewById<Button>( R.id.reset_times )
-        val resetNames: Button = findViewById<Button>( R.id.reset_names )
+        val logTimes: TextView = findViewById( R.id.log_times ) // OU val logTimes: TextView = findViewById<TextView>( R.id.log_times )
+        val logNames: TextView = findViewById( R.id.log_names )
+        val textInput: EditText = findViewById( R.id.input_text )
+        val butAdd: Button = findViewById( R.id.but_add )
+        val butClr: Button = findViewById( R.id.but_clr )
+        val resetTimes: Button = findViewById( R.id.reset_times )
+        val resetNames: Button = findViewById( R.id.reset_names )
         var timesClicked = 0
 
         // atribuindo valores a variaveis
-        logTimes?.text = "LOG:\n" // .text nao e uma String, e sim uma Editable
-        logNames?.text = "NAMES:\n"
+        logTimes.text = "LOG:\n" // .text nao e uma String, e sim uma Editable
+        logNames.text = "NAMES:\n"
         textInput.setText( "" )
 
         // adiciona o movimento de scroll view ao widget (neste caso, ao text_log)
-        logTimes?.movementMethod = ScrollingMovementMethod()
-        logNames?.movementMethod = ScrollingMovementMethod()
+        logTimes.movementMethod = ScrollingMovementMethod()
+        logNames.movementMethod = ScrollingMovementMethod()
 
         // funcao para rodar a cada click no botao
         butAdd.setOnClickListener( object : View.OnClickListener {
             override fun onClick(v: View?) {
                 // imprimir a quantidade de vezes do botao pressionado
                 timesClicked += 1
-                logTimes?.append( "Clicked $timesClicked time" )
+                logTimes.append( "Clicked $timesClicked time" )
                 // adicionar o "s" dependendo da quantidade de vezes clicadas
                 if( timesClicked > 1 ) {
-                    logTimes?.append( "s.\n" )
+                    logTimes.append( "s.\n" )
                 } else {
-                    logTimes?.append( ".\n" )
+                    logTimes.append( ".\n" )
                 }
                 // transformar tetInput.text em uma variavel String e imprimir
-                var printingName: String? = textInput?.text.toString()
-                logNames?.append( "$printingName\n" )
+                var printingName: String = textInput.text.toString()
+                logNames.append( "$printingName\n" )
             }
         })
 
         // botao para limpar caixa de texto
         butClr.setOnClickListener( object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                textInput?.text.clear()
+            override fun onClick( v: View ) {
+                textInput.text.clear()
             }
         })
 
         // funcao para resetar o log das vezes clicadas
         resetTimes.setOnClickListener( object : View.OnClickListener {
-            override fun onClick( v: View? ) {
+            override fun onClick( v: View ) {
                 timesClicked = 0
-                logTimes?.text = "LOG:\n"
+                logTimes.text = "LOG:\n"
             }
         })
 
         // funcao para resetar o log dos nomes inseridos
         resetNames.setOnClickListener( object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                logNames?.text = "NAMES:\n"
+            override fun onClick( v: View ) {
+                logNames.text = "NAMES:\n"
             }
         })
     }
