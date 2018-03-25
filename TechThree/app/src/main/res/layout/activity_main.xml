@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
     tools:context="io.clapper.techthree.MainActivity">
 
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/img_top"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:alpha="0.8"
+        android:alpha="0.9"
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -24,10 +27,10 @@
         android:id="@+id/text_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Because what comes after matters."
+        android:text="Engine Out"
         android:textAlignment="center"
         android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/img_top"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,23 +41,13 @@
         android:id="@+id/text_top"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:text="An app build to calculate how much damage an engine can do."
+        android:text="Because what comes after matters."
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/text_title"
         app:layout_constraintStart_toStartOf="@+id/text_title"
         app:layout_constraintTop_toBottomOf="@+id/text_title" />
-
-    <ImageView
-        android:id="@+id/icon_alert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_intro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_intro"
-        app:srcCompat="@drawable/ic_intro_80dp" />
 
     <TextView
         android:id="@+id/text_intro"
@@ -62,11 +55,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="Instead calculates how much fuel your engine uses to travel along an way, we calculate how much emissions this engine send out in the air."
+        android:layout_marginTop="20dp"
+        android:text="Instead calculates how much fuel your engine uses to travel along a path, we calculate how much emissions this engine sends out in the air."
         android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/icon_alert"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_top" />
 
@@ -74,11 +68,11 @@
         android:id="@+id/but_next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_intro2"
         app:srcCompat="@drawable/ic_next_24dp" />
 
     <TextView
@@ -88,20 +82,36 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
-        android:text="All we need is the fuel type, the path length and the vehicle type(engine relative)."
+        android:text="All we need is the fuel type, the path length and the vehicle type (engine relative)."
         android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ic_swap"
+        app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toBottomOf="@+id/text_intro" />
 
     <ImageView
-        android:id="@+id/ic_swap"
+        android:id="@+id/imageView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_intro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_intro"
+        app:srcCompat="@drawable/ic_intro_80dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/text_intro2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_intro2"
         app:srcCompat="@drawable/ic_swap_80dp" />
-
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
