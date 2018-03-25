@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="io.clapper.techthree.MainActivity">
+
+    <ImageView
+        android:id="@+id/img_top"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:alpha="0.8"
+        android:scaleType="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/Traffic_2" />
+
+    <TextView
+        android:id="@+id/text_top"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Because what comes after matters."
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/img_top"
+        app:layout_constraintTop_toTopOf="@+id/img_top" />
+
+    <TextView
+        android:id="@+id/text_intro"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="An app build to calculate how much damage an engine can do."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/text_top"
+        app:layout_constraintStart_toStartOf="@+id/text_top"
+        app:layout_constraintTop_toBottomOf="@+id/text_top" />
+
+</android.support.constraint.ConstraintLayout>
