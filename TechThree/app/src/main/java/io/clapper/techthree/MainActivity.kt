@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -32,20 +33,21 @@ class MainActivity : AppCompatActivity() {
     // para trocar background (sorteio) - e cor do titulo (adaptar)
     override fun onStart() {
         super.onStart()
-        var randBack = Random().nextInt( 3 ) + 1
+        //Toast.makeText( applicationContext, "onStart", Toast.LENGTH_LONG ).show()
+        var randBack = Random().nextInt( 4 ) + 1
         // troca de image background
         when( randBack ) {
-            1 -> img_back.setImageResource( R.drawable.back2 )
-            2 -> img_back.setImageResource( R.drawable.back3 )
-            3 -> img_back.setImageResource( R.drawable.back4 )
-            else -> img_back.setImageResource( R.drawable.back1 )
+            1 -> img_back.setImageResource( R.drawable.back1 )
+            2 -> img_back.setImageResource( R.drawable.back2 )
+            3 -> img_back.setImageResource( R.drawable.back3 )
+            4 -> img_back.setImageResource( R.drawable.back4 )
         }
         // adapta a cor do titulo
         when( randBack ) {
             1 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
             2 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
             3 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
-            else -> text_title.setTextColor( Color.parseColor( "#ffffff" ) )
+            4 -> text_title.setTextColor( Color.parseColor( "#ffffff" ) )
         }
     }
 
