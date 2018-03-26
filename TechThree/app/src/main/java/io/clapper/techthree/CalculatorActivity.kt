@@ -65,8 +65,11 @@ class CalculatorActivity : AppCompatActivity() {
                             startActivity( returnActivity )
                         } else if( etanol.isChecked ) {
                             var CO = calculateEmission( 0.56, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
                             var CH4 = calculateEmission( 0.011, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, CH4 )
                             var MP = calculateEmission( 0.0, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
@@ -74,7 +77,9 @@ class CalculatorActivity : AppCompatActivity() {
                     } else if( heavy.isChecked ) {
                         if( diesel.isChecked ) {
                             var CO = calculateEmission( 1.06, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
                             var MP = calculateEmission( 0.023, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
@@ -82,8 +87,11 @@ class CalculatorActivity : AppCompatActivity() {
                     } else if( motorbike.isChecked ) {
                         if( gasoline.isChecked ) {
                             var CO = calculateEmission( 1.02, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
                             var CH4 = calculateEmission( 0.03, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, CH4 )
                             var MP = calculateEmission( 0.0035, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
