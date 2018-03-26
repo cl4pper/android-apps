@@ -1,6 +1,7 @@
 package io.clapper.techthree
 
 import android.content.Intent
+import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,15 +13,15 @@ class CalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
-        val backButton: ImageView = findViewById( R.id.but_back )
+        val submitButton: ImageView = findViewById( R.id.but_submit )
 
         // intent da activity principal
         val introActivity = Intent( this, MainActivity::class.java )
 
         // metodo do botao para retornar a activity inicial
-        backButton.setOnClickListener( object : View.OnClickListener {
+        submitButton.setOnClickListener( object : View.OnClickListener {
             override fun onClick(v: View?) {
-                backButton.setImageResource( R.drawable.ic_back_pressed_80dp )
+                submitButton.setImageResource( R.drawable.ic_button_pressed_80dp )
                 startActivity( introActivity )
             }
         })
@@ -29,7 +30,7 @@ class CalculatorActivity : AppCompatActivity() {
     // para fazer o botao retornar ao estado original - antes do verde
     override fun onStop() {
         super.onStop()
-        val backButton: ImageView = findViewById( R.id.but_back )
-        backButton.setImageResource( R.drawable.ic_back_80dp )
+        val submitButton: ImageView = findViewById( R.id.but_submit )
+        submitButton.setImageResource( R.drawable.ic_button_80dp )
     }
 }

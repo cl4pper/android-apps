@@ -1,11 +1,13 @@
 package io.clapper.techthree
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,25 +15,45 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val nextButton: ImageView = findViewById( R.id.but_next )
+        val startButton: ImageView = findViewById( R.id.but_start )
 
         // intent para a activity da calculadora
         val calculatorActivity = Intent( this, CalculatorActivity::class.java )
 
         // metodo do botao avancar para proxima activity
-        nextButton.setOnClickListener( object : View.OnClickListener {
+        startButton.setOnClickListener( object : View.OnClickListener {
             override fun onClick(v: View?) {
-                nextButton.setImageResource( R.drawable.ic_pressed_80dp )
+                startButton.setImageResource( R.drawable.ic_button_pressed_80dp )
                 startActivity( calculatorActivity )
             }
         })
+    }
+
+    // para trocar background (sorteio) - e cor do titulo (adaptar)
+    override fun onStart() {
+        super.onStart()
+        var randBack = Random().nextInt( 3 ) + 1
+        // troca de image background
+        when( randBack ) {
+            1 -> img_back.setImageResource( R.drawable.back2 )
+            2 -> img_back.setImageResource( R.drawable.back3 )
+            3 -> img_back.setImageResource( R.drawable.back4 )
+            else -> img_back.setImageResource( R.drawable.back1 )
+        }
+        // adapta a cor do titulo
+        when( randBack ) {
+            1 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
+            2 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
+            3 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
+            else -> text_title.setTextColor( Color.parseColor( "#ffffff" ) )
+        }
     }
 
     // para fazer o botao retornar ao estado original - antes do verde
     override fun onStop() {
         super.onStop()
         //Toast.makeText( applicationContext, "onStop", Toast.LENGTH_LONG ).show()
-        val nextButton: ImageView = findViewById( R.id.but_next )
-        nextButton.setImageResource( R.drawable.ic_next_24dp )
+        val startButton: ImageView = findViewById( R.id.but_start )
+        startButton.setImageResource( R.drawable.ic_button_80dp )
     }
 }

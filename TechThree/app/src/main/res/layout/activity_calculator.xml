@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context="io.clapper.techthree.CalculatorActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <android.support.constraint.Guideline
         android:id="@+id/vertical_50"
@@ -14,149 +19,214 @@
         app:layout_constraintGuide_percent="0.50" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/horizontal_20"
+        android:id="@+id/vertical_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.20" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:backgroundTint="@android:color/transparent"
-        android:ems="10"
-        android:hint="Km"
-        android:inputType="numberDecimal"
-        android:singleLine="false"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_20" />
-
-    <EditText
-        android:id="@+id/editText3"
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_90"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@android:color/transparent"
-        android:ems="10"
-        android:hint="How many vehicles"
-        android:inputType="numberDecimal"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+        <EditText
+            android:id="@+id/input_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:ems="10"
+            android:hint="Km"
+            android:inputType="numberDecimal"
+            android:paddingStart="10sp"
+            android:textAlignment="viewStart"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_50"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/vertical_10"
+            app:layout_constraintTop_toBottomOf="@+id/text_distance" />
+
+        <EditText
+            android:id="@+id/input_vehicles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:ems="10"
+            android:hint="n"
+            android:inputType="numberDecimal"
+            android:paddingStart="10sp"
+            android:textAlignment="viewStart"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/input_distance"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/input_distance" />
+
+        <TextView
+            android:id="@+id/text_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingStart="10sp"
+            android:text="distance,"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_50"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/vertical_10"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/text_vehicles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="10sp"
+            android:text="vehicle(s),"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/input_vehicles"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+            app:layout_constraintStart_toEndOf="@+id/text_distance" />
+
+        <TextView
+            android:id="@+id/text_vehTypes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="10sp"
+            android:text="the car type,"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_50"
+            app:layout_constraintStart_toStartOf="@+id/vertical_10"
+            app:layout_constraintTop_toBottomOf="@+id/input_distance" />
 
     <RadioGroup
-        android:id="@+id/fuel_types"
-        android:layout_width="wrap_content"
+        android:id="@+id/radioGroup2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toStartOf="@+id/vertical_50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3">
+        app:layout_constraintStart_toEndOf="@+id/vertical_10"
+        app:layout_constraintTop_toBottomOf="@+id/text_vehTypes">
 
         <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Gasoline"
-            android:textAlignment="viewStart" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Etanol" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Diesel" />
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="GNV" />
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/veh_types"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/fuel_types"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/vertical_50"
-        app:layout_constraintTop_toTopOf="@+id/fuel_types">
-
-        <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Light" />
-
-        <RadioButton
-            android:id="@+id/radioButton6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Truck" />
-
-        <RadioButton
-            android:id="@+id/radioButton7"
+            android:id="@+id/radioButton12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Motorbike" />
 
         <RadioButton
-            android:id="@+id/radioButton8"
+            android:id="@+id/radioButton11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Heavy" />
+
+        <RadioButton
+            android:id="@+id/radioButton9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Light" />
+
+        <RadioButton
+            android:id="@+id/radioButton10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Bus" />
     </RadioGroup>
 
-    <ImageView
-        android:id="@+id/but_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuel_types"
-        app:srcCompat="@drawable/ic_back_80dp" />
+        <TextView
+            android:id="@+id/text_fuels"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="10sp"
+            android:text="and the fuel type."
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+            app:layout_constraintStart_toEndOf="@+id/text_vehTypes"
+            app:layout_constraintTop_toBottomOf="@+id/input_vehicles" />
 
-    <ImageView
-        android:id="@+id/but_calculate"
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+        app:layout_constraintStart_toEndOf="@+id/vertical_50"
+        app:layout_constraintTop_toBottomOf="@+id/text_fuels">
+
+        <RadioButton
+            android:id="@+id/radioButton13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gasoline" />
+
+        <RadioButton
+            android:id="@+id/radioButton14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Etanol" />
+
+        <RadioButton
+            android:id="@+id/radioButton15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Diesel" />
+
+        <RadioButton
+            android:id="@+id/radioButton16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="GNV" />
+    </RadioGroup>
+
+        <ImageView
+            android:id="@+id/but_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+            app:layout_constraintStart_toStartOf="@+id/vertical_10"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+            app:srcCompat="@drawable/ic_button_80dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="To calculate how much damage engines cause in the air all we need to know is the..."
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_90"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/vertical_10"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/but_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/vertical_50"
-        app:layout_constraintTop_toTopOf="@+id/but_back"
-        app:srcCompat="@drawable/ic_next_24dp" />
-</android.support.constraint.ConstraintLayout>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
