@@ -1,6 +1,7 @@
 package io.clapper.techthree
 
 import android.content.Intent
+import android.graphics.Color
 import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -16,12 +17,14 @@ class CalculatorActivity : AppCompatActivity() {
 
     //private val distance: EditText? = findViewById( R.id.input_distance )
     //private val quantity: EditText? = findViewById( R.id.input_vehicles )
+    //val submitText: TextView? = findViewById( R.id.text_go )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
         val submitButton: ImageView = findViewById( R.id.but_submit )
+        val submitText: TextView = findViewById( R.id.text_go )
         // radiobuttons: tipos de veiculo
         val bodies: RadioGroup = findViewById( R.id.body_types )
         val light: RadioButton = findViewById( R.id.radio_light )
@@ -48,8 +51,11 @@ class CalculatorActivity : AppCompatActivity() {
                 var dist = distance.text.toString()
                 var quant = quantity.text.toString()
                 if( ( dist == "") || ( quant == "" ) ) {
-                    submitButton.setImageResource( R.drawable.ic_button_alert_80dp )
-                    Toast.makeText( applicationContext, "All fields must be filled!", Toast.LENGTH_LONG ).show()
+                    //submitButton.setImageResource( R.drawable.ic_button_alert_80dp )
+                    Toast.makeText( applicationContext, "Fill all the fields!", Toast.LENGTH_LONG ).show()
+                    submitText.text = "TRY AGAIN!"
+                    //submitText.setTextColor( Color.RED )
+
                     //submitButton.setImageResource( R.drawable.ic_button_80dp )
                 } else {
                     submitButton.setImageResource( R.drawable.ic_button_pressed_80dp )
@@ -73,16 +79,20 @@ class CalculatorActivity : AppCompatActivity() {
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
+                            submitText.text = "TRY AGAIN!"
                         }
                     } else if( heavy.isChecked ) {
                         if( diesel.isChecked ) {
                             var CO = calculateEmission( 1.06, dist, quant )
                             returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
+                            var CH4 = calculateEmission( 0.00, dist, quant )
+                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, CH4 )
                             var MP = calculateEmission( 0.023, dist, quant )
                             returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
+                            submitText.text = "TRY AGAIN!"
                         }
                     } else if( motorbike.isChecked ) {
                         if( gasoline.isChecked ) {
@@ -95,6 +105,7 @@ class CalculatorActivity : AppCompatActivity() {
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
+                            submitText.text = "TRY AGAIN!"
                         }
                     }
                 }
@@ -106,7 +117,10 @@ class CalculatorActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         val submitButton: ImageView = findViewById( R.id.but_submit )
+        val submitText: TextView = findViewById( R.id.text_go )
         submitButton.setImageResource( R.drawable.ic_button_80dp )
+        submitText.text = "GO!"
+        //submitText.setTextColor( Color.BLACK )
     }
 
     // METODOS FUNDAMENTAIS

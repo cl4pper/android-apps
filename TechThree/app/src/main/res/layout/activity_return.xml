@@ -84,6 +84,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="10sp"
         android:text="X"
+        android:textAlignment="textStart"
         android:textColor="#ffffff"
         android:textSize="30sp"
         android:textStyle="bold"

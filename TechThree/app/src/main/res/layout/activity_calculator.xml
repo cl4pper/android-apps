@@ -67,7 +67,7 @@
         <TextView
             android:id="@+id/text_distance"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="22dp"
             android:layout_marginTop="20dp"
             android:paddingStart="10sp"
             android:text="distance,"
@@ -190,10 +190,8 @@
         <ImageView
             android:id="@+id/but_submit"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_height="80dp"
             android:layout_marginTop="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/vertical_90"
             app:layout_constraintStart_toStartOf="@+id/vertical_10"
             app:layout_constraintTop_toBottomOf="@+id/body_types"
@@ -218,5 +216,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.10" />
+
+        <TextView
+            android:id="@+id/text_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go!"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/but_submit"
+            app:layout_constraintStart_toStartOf="@+id/but_submit"
+            app:layout_constraintTop_toBottomOf="@+id/but_submit" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
