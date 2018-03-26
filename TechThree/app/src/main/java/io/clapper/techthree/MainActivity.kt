@@ -34,20 +34,20 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         //Toast.makeText( applicationContext, "onStart", Toast.LENGTH_LONG ).show()
-        var randBack = Random().nextInt( 4 ) + 1
+        var randBack = Random().nextInt( 3 ) + 1
         // troca de image background
         when( randBack ) {
-            1 -> img_back.setImageResource( R.drawable.back1 )
-            2 -> img_back.setImageResource( R.drawable.back2 )
-            3 -> img_back.setImageResource( R.drawable.back3 )
-            4 -> img_back.setImageResource( R.drawable.back4 )
+            1 -> img_back.setImageResource( R.drawable.back2 )
+            2 -> img_back.setImageResource( R.drawable.back3 )
+            3 -> img_back.setImageResource( R.drawable.back4 )
+            else -> img_back.setImageResource( R.drawable.back2 )
         }
         // adapta a cor do titulo
         when( randBack ) {
             1 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
             2 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
-            3 -> text_title.setTextColor( Color.parseColor( "#000000" ) )
-            4 -> text_title.setTextColor( Color.parseColor( "#ffffff" ) )
+            3 -> text_title.setTextColor( Color.parseColor( "#ffffff" ) )
+            else -> text_title.setTextColor( Color.parseColor( "#000000" ) )
         }
     }
 

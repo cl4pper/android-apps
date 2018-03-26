@@ -33,8 +33,8 @@ class ReturnActivity : AppCompatActivity() {
         mp.text =  "$particulas Kg"
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onPause() {
+        super.onPause()
 
         val co: TextView = findViewById( R.id.return_co )
         val ch4: TextView = findViewById( R.id.return_ch4 )
