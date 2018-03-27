@@ -27,14 +27,24 @@ class MainActivity : AppCompatActivity() {
         val textReturn: TextView = findViewById( R.id.text_return )
         val clearAlc: Button = findViewById( R.id.clr_alc )
         val clearGas: Button = findViewById( R.id.clr_gas )
+
+        val resultView = Intent( this, ReturnActivity::class.java )
         
         butCalculate.setOnClickListener( object : View.OnClickListener {
             override fun onClick( v: View? ) {
                 var alcool = inputAlc.text.toString()
                 var gasolina = inputGas.text.toString()
                 //
-                //var result = calculate( alcool, gasolina )
-                textReturn.text = calculate( alcool, gasolina )
+
+                if( ( alcool == "" ) || ( gasolina == "" ) ) {
+                    textReturn.text = "Tente novamente."
+                    Toast.makeText( applicationContext, "Insira todos os valores!", Toast.LENGTH_LONG ).show()
+                } else {
+                    var resultado = calculate( alcool, gasolina )
+                    resultView.putExtra( ReturnActivity.TEXT_RETURN, resultado )
+                    startActivity( resultView )
+                }
+                //
             }
         })
 
@@ -64,17 +74,19 @@ class MainActivity : AppCompatActivity() {
         //input_gas?.text = savedInstanceState?.getString( TAG_GAS, "" )
     }
 
+    override fun onStop() {
+        super.onStop()
+        val textReturn: TextView = findViewById( R.id.text_return )
+
+        textReturn.text = "Preencha ambos os campos."
+    }
+
     fun calculate( alc: String, gas: String ) : String {
-        //
-        if( ( alc == "") || ( gas == "") ) {
-            return "Insira todos os valores!"
+        var cal = alc.toDouble() / gas.toDouble()
+        if( cal < 0.7 ) {
+            return "Comprar Alcool."
         } else {
-            var cal = alc.toDouble() / gas.toDouble()
-            if( cal < 0.7 ) {
-                return "Comprar Alcool."
-            } else {
-                return "Comprar Gasolina."
-            }
+            return "Comprar Gasolina."
         }
     }
 }
