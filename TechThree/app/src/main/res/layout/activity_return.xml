@@ -27,50 +27,6 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/smoke1" />
 
-    <TextView
-        android:id="@+id/text_co"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingEnd="10sp"
-        android:text="CO"
-        android:textAlignment="textEnd"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_30" />
-
-    <TextView
-        android:id="@+id/text_ch4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingEnd="10sp"
-        android:text="CH4"
-        android:textAlignment="textEnd"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_co" />
-
-    <TextView
-        android:id="@+id/text_mp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingEnd="10sp"
-        android:text="MP"
-        android:textAlignment="textEnd"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_ch4" />
-
     <android.support.constraint.Guideline
         android:id="@+id/vertical_50"
         android:layout_width="wrap_content"
@@ -79,45 +35,16 @@
         app:layout_constraintGuide_percent="0.50" />
 
     <TextView
-        android:id="@+id/return_co"
+        android:id="@+id/text_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="10sp"
-        android:text="X"
-        android:textAlignment="textStart"
+        android:text="Result"
+        android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/vertical_50"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/horizontal_30" />
-
-    <TextView
-        android:id="@+id/return_ch4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingStart="10sp"
-        android:text="Y"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/vertical_50"
-        app:layout_constraintTop_toBottomOf="@+id/return_co" />
-
-    <TextView
-        android:id="@+id/return_mp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingStart="10sp"
-        android:text="Z"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/vertical_50"
-        app:layout_constraintTop_toBottomOf="@+id/return_ch4" />
 
 </android.support.constraint.ConstraintLayout>

@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
     // para trocar background (sorteio) - e cor do titulo (adaptar)
     override fun onStart() {
         super.onStart()
-        //Toast.makeText( applicationContext, "onStart", Toast.LENGTH_LONG ).show()
         var randBack = Random().nextInt( 3 ) + 1
+
         // troca de image background
         when( randBack ) {
             1 -> img_back.setImageResource( R.drawable.back2 )
@@ -54,8 +54,8 @@ class MainActivity : AppCompatActivity() {
     // para fazer o botao retornar ao estado original - antes do verde
     override fun onStop() {
         super.onStop()
-        //Toast.makeText( applicationContext, "onStop", Toast.LENGTH_LONG ).show()
         val startButton: ImageView = findViewById( R.id.but_start )
+
         startButton.setImageResource( R.drawable.ic_button_80dp )
     }
 }

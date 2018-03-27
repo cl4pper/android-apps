@@ -15,10 +15,6 @@ import java.util.*
 
 class CalculatorActivity : AppCompatActivity() {
 
-    //private val distance: EditText? = findViewById( R.id.input_distance )
-    //private val quantity: EditText? = findViewById( R.id.input_vehicles )
-    //val submitText: TextView? = findViewById( R.id.text_go )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
@@ -26,13 +22,11 @@ class CalculatorActivity : AppCompatActivity() {
         val submitButton: ImageView = findViewById( R.id.but_submit )
         val submitText: TextView = findViewById( R.id.text_go )
         // radiobuttons: tipos de veiculo
-        val bodies: RadioGroup = findViewById( R.id.body_types )
         val light: RadioButton = findViewById( R.id.radio_light )
         val heavy: RadioButton = findViewById( R.id.radio_heavy )
         val motorbike: RadioButton = findViewById( R.id.radio_bike )
 
         // radiobuttons: tipos de combustivel
-        val fuels: RadioGroup = findViewById( R.id.fuel_types )
         val gasoline: RadioButton = findViewById( R.id.radio_gas )
         val etanol: RadioButton = findViewById( R.id.radio_eta )
         val diesel: RadioButton = findViewById( R.id.radio_die )
@@ -54,28 +48,18 @@ class CalculatorActivity : AppCompatActivity() {
                     //submitButton.setImageResource( R.drawable.ic_button_alert_80dp )
                     Toast.makeText( applicationContext, "Fill all the fields!", Toast.LENGTH_LONG ).show()
                     submitText.text = "TRY AGAIN!"
-                    //submitText.setTextColor( Color.RED )
-
-                    //submitButton.setImageResource( R.drawable.ic_button_80dp )
                 } else {
                     submitButton.setImageResource( R.drawable.ic_button_pressed_80dp )
                     if( light.isChecked ) {
                         if( gasoline.isChecked ) {
-                            //randomIntent.putExtra(SecondActivity.TOTAL_COUNT, count)
-                            var CO = calculateEmission( 0.33, dist, quant ) // monoxido de carbono
-                            returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
-                            var CH4 = calculateEmission( 0.011, dist, quant ) // metano
-                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, CH4 )
-                            var MP = calculateEmission( 0.0011, dist, quant ) // material particulado
-                            returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
+                            returnActivity.putExtra( ReturnActivity.CO_RESULT, calculateEmission( 0.33, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, calculateEmission( 0.011, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.MP_RESULT, calculateEmission( 0.0011, dist, quant ) )
                             startActivity( returnActivity )
                         } else if( etanol.isChecked ) {
-                            var CO = calculateEmission( 0.56, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
-                            var CH4 = calculateEmission( 0.011, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, CH4 )
-                            var MP = calculateEmission( 0.0, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
+                            returnActivity.putExtra( ReturnActivity.CO_RESULT, calculateEmission( 0.56, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, calculateEmission( 0.011, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.MP_RESULT, calculateEmission( 0.0, dist, quant ) )
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
@@ -83,12 +67,9 @@ class CalculatorActivity : AppCompatActivity() {
                         }
                     } else if( heavy.isChecked ) {
                         if( diesel.isChecked ) {
-                            var CO = calculateEmission( 1.06, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
-                            var CH4 = calculateEmission( 0.00, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, CH4 )
-                            var MP = calculateEmission( 0.023, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
+                            returnActivity.putExtra( ReturnActivity.CO_RESULT, calculateEmission( 1.06, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, calculateEmission( 0.00, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.MP_RESULT, calculateEmission( 0.023, dist, quant ) )
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
@@ -96,12 +77,9 @@ class CalculatorActivity : AppCompatActivity() {
                         }
                     } else if( motorbike.isChecked ) {
                         if( gasoline.isChecked ) {
-                            var CO = calculateEmission( 1.02, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.CO_RESULT, CO )
-                            var CH4 = calculateEmission( 0.03, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, CH4 )
-                            var MP = calculateEmission( 0.0035, dist, quant )
-                            returnActivity.putExtra( ReturnActivity.MP_RESULT, MP )
+                            returnActivity.putExtra( ReturnActivity.CO_RESULT, calculateEmission( 1.02, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.CH4_RESULT, calculateEmission( 0.03, dist, quant ) )
+                            returnActivity.putExtra( ReturnActivity.MP_RESULT, calculateEmission( 0.0035, dist, quant ) )
                             startActivity( returnActivity )
                         } else {
                             Toast.makeText( applicationContext, "Incorrect Car Type x Fuel!", Toast.LENGTH_LONG ).show()
@@ -118,8 +96,13 @@ class CalculatorActivity : AppCompatActivity() {
         super.onStop()
         val submitButton: ImageView = findViewById( R.id.but_submit )
         val submitText: TextView = findViewById( R.id.text_go )
+        val distance: EditText = findViewById( R.id.input_distance )
+        val quantity: EditText = findViewById( R.id.input_vehicles )
+
         submitButton.setImageResource( R.drawable.ic_button_80dp )
         submitText.text = "GO!"
+        distance.text.clear()
+        quantity.text.clear()
         //submitText.setTextColor( Color.BLACK )
     }
 
