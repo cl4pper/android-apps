@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
     tools:context="io.clapper.multicalculator.MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <android.support.constraint.Guideline
         android:id="@+id/vertical_10"
@@ -43,7 +47,7 @@
         app:layout_constraintGuide_percent="0.35" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/horizontal_50"
+        android:id="@+id/horizontal_mid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -74,7 +78,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/vertical_60"
         app:layout_constraintStart_toStartOf="@+id/vertical_60"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_50" />
+        app:layout_constraintTop_toTopOf="@+id/horizontal_mid" />
 
     <Button
         android:id="@+id/but_7"
@@ -284,7 +288,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/white"
         android:ems="10"
-        android:inputType="numberSigned"
+        android:inputType="numberSigned|numberDecimal"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_10"
         app:layout_constraintEnd_toStartOf="@+id/vertical_90"
@@ -317,11 +321,11 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/white"
         android:ems="10"
-        android:inputType="numberSigned"
+        android:inputType="numberSigned|numberDecimal"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_35"
         app:layout_constraintEnd_toStartOf="@+id/vertical_90"
         app:layout_constraintStart_toStartOf="@+id/vertical_10"
         app:layout_constraintTop_toTopOf="@+id/horizontal_35" />
-
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
