@@ -44,6 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         play.setOnClickListener( object : View.OnClickListener {
             override fun onClick(v: View?) {
+                //returnActivity.putExtra( ReturnActivity.CO_RESULT, calculateEmission( 0.33, dist, quant ) )
+                var numero = quantJogadores.text.toString()
+                PlayersView.putExtra( PlayersActivity.CELULAS, numero )
                 startActivity( PlayersView )
             }
         })
