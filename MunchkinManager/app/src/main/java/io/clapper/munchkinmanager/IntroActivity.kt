@@ -17,7 +17,7 @@ class IntroActivity : AppCompatActivity() {
         val MainView = Intent( this, MainActivity::class.java )
 
         start.setOnClickListener( object : View.OnClickListener {
-            override fun onClick( v: View? ) {
+            override fun onClick(v: View?) {
                 // vai para a tela de numero de jogadores
                 startActivity( MainView )
             }

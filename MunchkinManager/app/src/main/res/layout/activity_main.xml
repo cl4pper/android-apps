@@ -13,7 +13,7 @@
         android:text="Número de jogadores:"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,49 +26,62 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.10" />
 
-    <Button
-        android:id="@+id/but_add"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
-        android:text="+"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_top" />
-
     <TextView
         android:id="@+id/text_quant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
         android:text="0"
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="150sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/but_add" />
+        android:textSize="100sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_50"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
+        app:layout_constraintStart_toStartOf="@+id/vertical_50"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_50"
+        app:layout_constraintVertical_bias="0.502" />
 
-    <Button
-        android:id="@+id/but_remove"
-        android:layout_width="0dp"
+    <ImageView
+        android:id="@+id/but_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_quant"
+        app:layout_constraintStart_toEndOf="@+id/text_quant"
+        app:layout_constraintTop_toTopOf="@+id/text_quant"
+        app:srcCompat="@drawable/arrow_add" android:contentDescription="TODO" />
+
+    <ImageView
+        android:id="@+id/but_rem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_quant"
+        app:layout_constraintEnd_toStartOf="@+id/text_quant"
+        app:layout_constraintTop_toTopOf="@+id/text_quant"
+        app:srcCompat="@drawable/arrow_rem" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <ImageView
+        android:id="@+id/but_play"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
-        android:text="-"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textSize="50sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_quant" />
+        app:layout_constraintTop_toBottomOf="@+id/text_quant"
+        app:srcCompat="@drawable/play_released" />
 
 </android.support.constraint.ConstraintLayout>
